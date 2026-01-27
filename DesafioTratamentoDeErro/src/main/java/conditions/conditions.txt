@@ -1,0 +1,1 @@
+Saque não pode ocorrer se saque > saldo || saque > limite
