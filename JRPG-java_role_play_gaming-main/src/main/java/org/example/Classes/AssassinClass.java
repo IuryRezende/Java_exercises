@@ -1,26 +1,27 @@
 package org.example.Classes;
 
-import org.example.model.HumanModel;
+import org.example.model.Player;
 
-public class AssassinClass extends HumanModel {
+public class AssassinClass extends Player {
 
     private final String emoji = "🐱‍👤";
     private final int defaultDodge = 2;
-    private int dodge;
 
     public AssassinClass() {}
 
 
-    public AssassinClass(String name, Double life, int naturalDefense, int dodge) {
-        super(name, life, naturalDefense);
-        this.dodge = dodge + defaultDodge;
+    public AssassinClass(String name, Double life) {
+        super(name, life);
+        naturalDodge += defaultDodge;
     }
 
-    public int getDodge() {
-        return dodge;
+    @Override
+    public void takeDamage(int damage) {
+
     }
 
-    public void setDodge(int dodge) {
-        this.dodge = dodge;
+    @Override
+    public boolean isLive() {
+        return false;
     }
 }
