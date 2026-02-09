@@ -10,9 +10,9 @@ public class AssassinClass extends Player {
     public AssassinClass() {}
 
 
-    public AssassinClass(String name, Double life) {
+    public AssassinClass(String name, int life) {
         super(name, life);
-        naturalDodge += defaultDodge;
+        dodge += defaultDodge;
     }
 
     @Override

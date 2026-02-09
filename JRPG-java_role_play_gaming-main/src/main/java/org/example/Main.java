@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Armory.MageSpellsEnum;
 import org.example.Classes.AssassinClass;
 import org.example.Classes.MageClass;
 
@@ -11,7 +12,7 @@ public class Main {
         AssassinClass assassin = new AssassinClass();
         MageClass mage = new MageClass();
 
-        System.out.println(mage.test(1));
+        System.out.println();
 
     }
 }

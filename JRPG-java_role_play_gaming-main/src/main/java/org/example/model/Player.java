@@ -1,11 +1,13 @@
 package org.example.model;
 
+import org.example.Interface.Combatent;
+
 public abstract class Player implements Combatent {
     protected String name;
     protected int life;
-    protected int naturalDefense;
-    protected int naturalDodge;
-    protected int naturalMana;
+    protected int defense;
+    protected int dodge;
+    protected int mana;
     private Combatent combatent;
 
     public Player() {}
@@ -23,20 +25,22 @@ public abstract class Player implements Combatent {
 
     public void setName(String name) { this.name = name; }
 
-    public int getNaturalDefense() { return naturalDefense; }
+    public int getDefense() { return defense; }
 
-    public void setNaturalDefense(int naturalDefense) { this.naturalDefense = naturalDefense; }
+    public void setDefense(int defense) { this.defense = defense; }
 
-    public int getNaturalDodge() { return naturalDodge; }
+    public int getDodge() { return dodge; }
 
-    public void setNaturalDodge(int naturalDodge) { this.naturalDodge = naturalDodge; }
+    public void setDodge(int dodge) { this.dodge = dodge; }
 
-    public int getNaturalMana() { return naturalMana; }
+    public int getMana() { return mana; }
 
-    public void setNaturalMana(int naturalMana) { this.naturalMana = naturalMana; }
+    public void setMana(int mana) { this.mana = mana; }
 
     @Override
-    public void takeDamage(int damage) { life -= damage; }
+    public void takeDamage(int damage) {
+        life -= damage;
+    }
 
     public void attack(Combatent target){}
 

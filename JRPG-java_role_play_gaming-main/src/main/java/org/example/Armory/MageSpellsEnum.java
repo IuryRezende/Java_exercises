@@ -1,8 +1,7 @@
 package org.example.Armory;
 
 
-public enum MageSpellsEnum {
-    KATCHAU(40, 50, "⚡"),
+public enum MageSpellsEnum { KATCHAU(40, 50, "⚡"),
     FIREBALL(25, 20, "🔥"),
     FREEZE(10, 30, "❄");
 
@@ -17,10 +16,15 @@ public enum MageSpellsEnum {
 
     }
 
-    public double getDamage(){
-        return damage;
-    }
+    public int getDamage() { return damage; }
 
+    public void setDamage(int damage) { this.damage = damage; }
 
+    public String getEmoji() { return emoji; }
 
+    public void setEmoji(String emoji) { this.emoji = emoji; }
+
+    public int getManaCost() { return manaCost; }
+
+    public void setManaCost(int manaCost) { this.manaCost = manaCost; }
 }
