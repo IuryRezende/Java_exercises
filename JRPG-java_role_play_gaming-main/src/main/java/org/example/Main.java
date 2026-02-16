@@ -8,11 +8,21 @@ import org.example.Classes.MageClass;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        try {
+            MageClass p1 = new MageClass("PaulinPinho", 200, 2, 50);
+            MageClass p2 = new MageClass("Fimosis", 150, 1, 20);
 
-        AssassinClass assassin = new AssassinClass();
-        MageClass mage = new MageClass();
+            System.out.println(p1.getSheet());
+            System.out.println(p2.getSheet());
 
-        System.out.println();
+            p1.attack(1, p2);
 
+            if(p2.isLive()){
+                throw new RuntimeException(p2.getName() + " morreu");
+            }
+            System.out.println(p2.getSheet());
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

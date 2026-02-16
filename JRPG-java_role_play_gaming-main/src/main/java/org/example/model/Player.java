@@ -38,9 +38,7 @@ public abstract class Player implements Combatent {
     public void setMana(int mana) { this.mana = mana; }
 
     @Override
-    public void takeDamage(int damage) {
-        life -= damage;
-    }
+    public void takeDamage(int damage) { life -= damage; }
 
     public void attack(Combatent target){}
 

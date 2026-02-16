@@ -1,7 +1,8 @@
 package org.example.Armory;
 
 
-public enum MageSpellsEnum { KATCHAU(40, 50, "⚡"),
+public enum MageSpellsEnum {
+    KATCHAU(1000, 50, "⚡"),
     FIREBALL(25, 20, "🔥"),
     FREEZE(10, 30, "❄");
 
