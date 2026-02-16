@@ -4,38 +4,56 @@ import org.example.Interface.Combatent;
 
 public abstract class Player implements Combatent {
     protected String name;
+    private int defaultLife = 200;
     protected int life;
+    protected int strength; // +defense | +life | +damage w/ two hand weapons per strength
+    protected int agility;// +dodge | +criticalChance | +chance to deal 2 attack in one turn
+    protected int intelligence;// +mana | +debuffResistance (-chance to receive debuff, -rounds receiving debuff, -damage of debuff)|+damage on spells
     protected int defense;
     protected int dodge;
     protected int mana;
+    protected int criticalChance;
+    protected int debuffResistance;
     private Combatent combatent;
 
     public Player() {}
 
-    public Player(String name, int life) {
+    public Player(String name, int strength, int agility, int intelligence) {
         this.name = name;
-        this.life += life;
+        this.strength = strength;
+        this.agility += agility;
+        this.intelligence += intelligence;
+        life = defaultLife + (strength * 20);
+        defense = strength * 4;
+        dodge = agility * 3;
+        mana = intelligence * 50;
+        criticalChance = agility * 2;
+        debuffResistance = intelligence * 5;
     }
 
-    public double getLife() { return life; }
+    public int getAgility() { return agility; }
 
-    public void setLife(int life) { this.life = life; }
+    public void setAgility(int agility) { this.agility = agility; }
 
-    public String getName() { return name; }
+    public int getIntelligence() { return intelligence; }
 
-    public void setName(String name) { this.name = name; }
+    public void setIntelligence(int intelligence) { this.intelligence = intelligence; }
+
+    public int getStrength() { return strength; }
 
     public int getDefense() { return defense; }
 
-    public void setDefense(int defense) { this.defense = defense; }
-
     public int getDodge() { return dodge; }
-
-    public void setDodge(int dodge) { this.dodge = dodge; }
 
     public int getMana() { return mana; }
 
-    public void setMana(int mana) { this.mana = mana; }
+    public String getName() { return name; }
+
+    public int getDebuffResistance() { return debuffResistance; }
+
+    public int getCriticalChance() { return criticalChance; }
+
+    public void setStrength(int strength) { this.strength = strength; }
 
     @Override
     public void takeDamage(int damage) { life -= damage; }
@@ -44,7 +62,7 @@ public abstract class Player implements Combatent {
 
     public void defense(){}
 
-    public void dodge(){}
+    public void agility(){}
 
     @Override
     public boolean isLive(){ return life > 0; }

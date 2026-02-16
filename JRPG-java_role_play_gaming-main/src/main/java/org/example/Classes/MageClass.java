@@ -2,7 +2,6 @@ package org.example.Classes;
 
 
 import org.example.Armory.MageSpellsEnum;
-import org.example.Interface.Combatent;
 import org.example.model.Player;
 
 import java.util.*;
@@ -10,14 +9,21 @@ import java.util.*;
 
 public class MageClass extends Player {
 
-    private int intelligence;
-    private int mana = 100;
+    private final int defaultIntelligence = 2;
     private final List<MageSpellsEnum> spellsList = new ArrayList<>(Arrays.asList(MageSpellsEnum.values()));
 
     private int calcDamage(int damage, int enemyDefense){ return enemyDefense >= damage ? 0 : damage - enemyDefense; };
 
     private boolean checkIfHasMana(int manaCost){ return mana >= manaCost; }
 
+
+    public MageClass(){};
+
+
+    public MageClass(String name, int strength, int agility, int intelligence) {
+        super(name, strength, agility, intelligence);
+        this.intelligence += defaultIntelligence;
+    }
 
     public void attack(int numOfSpell, Player player){
         Map<String, String> spell = Map.of(
@@ -46,27 +52,17 @@ public class MageClass extends Player {
                     + " points of damage"
                     + "\n=============================================\n");
         } catch (RuntimeException e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 
-    public MageClass(){};
+    @Override
+    public void defense(){
 
-
-    public MageClass(String name, int life, int intelligence, int mana) {
-        super(name, life);
-        this.intelligence = intelligence;
-        this.mana += mana;
     }
 
-    public int getIntelligence() { return intelligence; }
-
-    public void setIntelligence(int intelligence) { this.intelligence = intelligence; }
-
     @Override
-    public int getMana() { return mana; }
-
-    public void setMana(int mana) { this.mana = mana; }
+    public void dodge() { }
 
     @Override
     public boolean isLive() { return life <= 0; }
@@ -89,10 +85,14 @@ public class MageClass extends Player {
                 .append(" ".repeat(padding)).append(title).append(" ".repeat(padding)).append("\n")
                 .append("=".repeat(width)).append("\n")
                 .append(String.format("| %-" + (width - 4) + "s |%n", "Life: " + life))
+                .append(String.format("| %-" + (width - 4) + "s |%n", "Strength: " + strength))
+                .append(String.format("| %-" + (width - 4) + "s |%n", "Agility: " + agility))
+                .append(String.format("| %-" + (width - 4) + "s |%n", "Intelligence: " + intelligence))
                 .append(String.format("| %-" + (width - 4) + "s |%n", "Defense: " + defense))
-                .append(String.format("| %-" + (width - 4) + "s |%n", "Dodge: " + dodge))
+                .append(String.format("| %-" + (width - 4) + "s |%n", "Dodge: " + dodge + "%"))
                 .append(String.format("| %-" + (width - 4) + "s |%n", "Mana: " + mana))
-                .append(String.format("| %-" + (width - 4) + "s |%n", "Spells: " + sbSpells))
+                .append(String.format("| %-" + (width - 4) + "s |%n", "Critical Chance: " + criticalChance + "%"))
+                .append(String.format("| %-" + (width - 4) + "s |%n", "Debuff Resistance: " + debuffResistance))
                 .append("=".repeat(width));
 
         return sbSheet.toString();

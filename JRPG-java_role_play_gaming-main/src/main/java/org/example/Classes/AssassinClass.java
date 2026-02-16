@@ -11,12 +11,16 @@ public class AssassinClass extends Player {
 
 
     public AssassinClass(String name, int life) {
-        super(name, life);
-        dodge += defaultDodge;
+        agility += defaultDodge;
     }
 
     @Override
     public void takeDamage(int damage) {
+
+    }
+
+    @Override
+    public void dodge() {
 
     }
 

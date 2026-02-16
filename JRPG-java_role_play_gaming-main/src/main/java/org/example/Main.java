@@ -9,10 +9,11 @@ import org.example.Classes.MageClass;
 public class Main {
     public static void main(String[] args) {
         try {
-            MageClass p1 = new MageClass("PaulinPinho", 200, 2, 50);
-            MageClass p2 = new MageClass("Fimosis", 150, 1, 20);
+            MageClass p1 = new MageClass("PaulinPinho", 2, 4, 4);
+            MageClass p2 = new MageClass("Fimosis", 4, 3, 3);
 
             System.out.println(p1.getSheet());
+            System.out.println("\n\n");
             System.out.println(p2.getSheet());
 
             p1.attack(1, p2);
